@@ -388,7 +388,7 @@ img.imagepopup {
   <div class="image-wrapper">
     {% with listing.images.first as image %}
       {% if image %}
-        <a href="{% url 'imagecat' %}" class="image-container" style="text-decoration: none; color: inherit;">
+        <a href="{% url 'imagecat' listing.id %}" class="image-container" style="text-decoration: none; color: inherit;">
           <div>
             <img src="{{ image.image.url }}" alt="House Image" class="imagepopup">
             <div class="image-text">

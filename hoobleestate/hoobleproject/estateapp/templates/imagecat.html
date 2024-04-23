@@ -239,6 +239,12 @@
 
 
 </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImageCat</title>
 </head>
 <body>
   <div class="container">
@@ -252,101 +258,92 @@
             <a href="#" class="nav-link">CONTACT US</a>
         </div>
         <div class="navbar-right">
-            <a href="#" class="logo " style="text-decoration: none;"></a>
+            <a href="#" class="logo" style="text-decoration: none;"></a>
         </div>
     </nav>
-</div>
-
-
-
-
-
-<div class="image-container">
-  <div style="overflow:hidden; padding-top:32.60%; position:relative; width:100%; cursor: grab;" class="framess">
-    <iframe src="{{ listing.iframe_url }}" frameborder="0" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%;"></iframe>
-</div>
-
-  <div class="small-container">
-    <div class="small-row">
-      <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg" alt="Small Image" class="small-image">
-      <a href="www.youtube.com"><img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg" alt="Small Image" class="small-image"></a>
-    </div>
-    <div class="small-row">
-      <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg" alt="Small Image" class="small-image">
-      <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg" alt="Small Image" class="small-image">
-    </div>
   </div>
-</div>
 
-  {% comment %} <div class="small-container">
-    <!-- Dynamic image loading for each listing -->
-    {% for image in listing.images.all %}
-    <div class="small-row">
-      <img src="{{ image.image.url }}" alt="Image of {{ listing.title }}" class="small-image">
+  <div class="image-container">
+    <div style="overflow:hidden; padding-top:32.60%; position:relative; width:100%; cursor: grab;" class="framess">
+      <iframe src="{{ listing.iframe_url }}" frameborder="0" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%;"></iframe>
     </div>
-    {% endfor %}
-  </div>
-</div> {% endcomment %}
-
-<div class="container container-grid">
-  <div class="card-container">
-    <div class="card card-full card-gap">
-      <h1>N$ {{ listing.price }}</h1>
-      <h4>{{ listing.title }}</h4>
-      <small>{{ listing.location }}</small>
-    </div>
-    <div class="card card-full" style="margin-bottom: 30px;">
-      <div>
-        <small>N$ {{ listing.price }}</small>
-        <small>ERF Size {{ listing.erf_size }}sqm</small>
+    <div class="small-container">
+      <div class="small-row">
+        <!-- Make sure to enclose the URL in double quotes -->
+        <img src="{{ image.image.url }}" alt="Small Image" class="small-image">
+        <!-- Make sure to enclose the URL in double quotes -->
+        <img src="{{ image.image.url }}" alt="Small Image" class="small-image">
       </div>
-      <br />
-      <div>
-        <small>Free standing Family Home in {{ listing.location }}</small>
-        <small>This property needs TLC</small>
+      <div class="small-row">
+        <!-- Make sure to enclose the URL in double quotes -->
+        <img src="{{ image.image.url }}" alt="Small Image" class="small-image">
+        <!-- Make sure to enclose the URL in double quotes -->
+        <img src="{{ image.image.url }}" alt="Small Image" class="small-image">
       </div>
-      <br />
-      <!-- Additional property details here, dynamically populated -->
     </div>
   </div>
 
-  
-  <div class="card card-half card-sticky">
-    <h1>Contact Agent</h1>
-    <small>Show Contact Number</small>
-    <small>Show Email Address</small>
-    <form method="post" action="{% url 'imagecat' %}">
-      {% csrf_token %}
-      <div class="form-contrl">
-        <input type="text" name="user_name" placeholder="Name" required />
+  <!-- Your dynamic image loading section goes here -->
+
+  <div class="container container-grid">
+    <div class="card-container">
+      <div class="card card-full card-gap">
+        <!-- Make sure to replace `{{ listing.price }}`, `{{ listing.title }}`, and `{{ listing.location }}` with the appropriate dynamic data -->
+        <h1>N$ {{ listing.price }}</h1>
+        <h4>{{ listing.title }}</h4>
+        <small>{{ listing.location }}</small>
       </div>
-      <div class="form-contrl">
-        <input type="text" name="surname" placeholder="Surname" required/>
+      <div class="card card-full" style="margin-bottom: 30px;">
+        <div>
+          <!-- Make sure to replace `{{ listing.price }}` and `{{ listing.erf_size }}` with the appropriate dynamic data -->
+          <small>N$ {{ listing.price }}</small>
+          <small>ERF Size {{ listing.erf_size }} sqm</small>
+        </div>
+        <br />
+        <div>
+          <small>Free standing Family Home in {{ listing.location }}</small>
+          <small>This property needs TLC</small>
+        </div>
+        <br />
+        <!-- Additional property details here, dynamically populated -->
       </div>
-      <div class="form-contrl">
-        <input type="email" name="email" placeholder="Email Address"  required/>
-      </div>
-      <div class="form-contrl">
-        <input type="text" name="mobile_number" placeholder="Mobile Number" required/>
-      </div>
-      <textarea
-        name="message"
-        rows="4"
-        cols="50"
-        placeholder="Please contact me regarding web reference 114283369"
-      ></textarea>
-      <button type="submit" class="btn btn-primary">Send Message</button>
-    </form>
-    {% if messages %}
-    <div class="alert alert-success">
-      {% for message in messages %}
-        {{ message }}
-      {% endfor %}
     </div>
-  {% endif %}
+
+    <div class="card card-half card-sticky">
+      <h1>Contact Agent</h1>
+      <small>Show Contact Number</small>
+      <small>Show Email Address</small>
+      <form method="post" action="{% url 'imagecat' listing.id %}">
+        {% csrf_token %}
+        <div class="form-contrl">
+          <input type="text" name="user_name" placeholder="Name" required />
+        </div>
+        <div class="form-contrl">
+          <input type="text" name="surname" placeholder="Surname" required/>
+        </div>
+        <div class="form-contrl">
+          <input type="email" name="email" placeholder="Email Address" required/>
+        </div>
+        <div class="form-contrl">
+          <input type="text" name="mobile_number" placeholder="Mobile Number" required/>
+        </div>
+        <textarea
+          name="message"
+          rows="4"
+          cols="50"
+          placeholder="Please contact me regarding web reference 114283369"
+        ></textarea>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+      <!-- Messages display section -->
+      {% if messages %}
+      <div class="alert alert-success">
+        {% for message in messages %}
+          {{ message }}
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
   </div>
-  
-      
-  
 </body>
 </html>

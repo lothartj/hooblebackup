@@ -4,18 +4,22 @@ from .models import Listing, ContactAgent
 from .utils import send_email
 from django.contrib import messages
 from .models import Listing, Image
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 def homepage(request):
-    listings = Listing.objects.prefetch_related('images').all()  
-    images = Image.objects.all()
-    return render(request, "homepage.html", {'listings': listings, 'images': images})
+    listings = Listing.objects.prefetch_related('images').all()
+    return render(request, 'homepage.html', {'listings': listings})
 
 
 
 ######################################################################################################################################
-def imagecat(request):
-    listings = Listing.objects.all()  # Fetch all listings from the database
+def imagecat(request, listing_id=None):
+    # Fetch the specific listing based on the listing_id if provided
+    if listing_id:
+        listing = get_object_or_404(Listing.objects.prefetch_related('images'), id=listing_id)
+    else:
+        listing = None
 
     if request.method == 'POST':
         # Retrieve form data
@@ -47,8 +51,11 @@ def imagecat(request):
         messages.success(request, 'Your email has been sent successfully!')
         
         # Redirect after form submission
-        return redirect('imagecat')  # Redirect to the same page after form submission
+        if listing_id:
+            return redirect('imagecat', listing_id=listing_id)  # Redirect to the same page after form submission
+        else:
+            return redirect('imagecat')  # Redirect to the same page after form submission
     else:
         # Render the page with the listing data
-        return render(request, "imagecat.html", {'listings': listings})
+        return render(request, "imagecat.html", {'listing': listing})
 ######################################################################################################################################
