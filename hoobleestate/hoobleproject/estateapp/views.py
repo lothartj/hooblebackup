@@ -39,10 +39,10 @@ def imagecat(request, listing_id=None):
         )
         contact.save()
 
-        # Assuming the send_email function is defined elsewhere and configured correctly
-        receiver_email = "anthonyraoulbock01@gmail.com"  # Update with the agent's email address
+        # Email sending logic (assuming the send_email function is defined elsewhere and configured correctly)
+        receiver_email = {Listing.agent_email}  # Update with the agent's email address
         subject = "Property Listing Inquire"
-        body = f"{user_name} {surname} would like to Inquire about your recent lising {listing} Email: {email}, Mobile Number: {mobile_number}. Message: {message}"
+        body = f"{user_name} {surname} would like to Inquire about your recent listing {listing.title}. Email: {email}, Mobile Number: {mobile_number}. Message: {message}"
         # Assuming no file attachments for now
         file_paths = []
         send_email(receiver_email, subject, body, file_paths)
@@ -52,10 +52,10 @@ def imagecat(request, listing_id=None):
         
         # Redirect after form submission
         if listing_id:
-            return redirect('imagecat', listing_id=listing_id)  # Redirect to the same page after form submission
+            return redirect('imagecat', listing_id=listing_id)
         else:
-            return redirect('imagecat')  # Redirect to the same page after form submission
+            return redirect('imagecat')
     else:
-        # Render the page with the listing data
-        return render(request, "imagecat.html", {'listing': listing})
+        # Render the page with the listing and its images
+        return render(request, "imagecat.html", {'listing': listing, 'images': listing.images.all() if listing else []})
 ######################################################################################################################################

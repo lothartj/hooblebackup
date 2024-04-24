@@ -396,7 +396,8 @@ img.imagepopup {
               <p style="font-weight: bold;">{{ listing.location }}</p>
               <p>HOUSE FOR RENT</p>
               <p>{{ listing.bedroom_count }}</p>
-              <p><span style="font-weight: bold;">{{ listing.price }}</span> per month</p>
+              {% load humanize %}
+              <p><span style="font-weight: bold;">N$ {{ listing.price|floatformat:2|intcomma }}</span> per month</p>
             </div>
           </div>
         </a>
