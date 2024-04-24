@@ -313,7 +313,7 @@
       <h1>Contact Agent</h1>
       <small>Show Contact Number</small>
       <small>Show Email Address</small>
-      <form method="post" action="{% url 'imagecat' listing.id %}">
+      <form method="post" >
         {% csrf_token %}
         <div class="form-contrl">
           <input type="text" name="user_name" placeholder="Name" required />

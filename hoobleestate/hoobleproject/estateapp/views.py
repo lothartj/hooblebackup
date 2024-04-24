@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from .models import Listing, ContactAgent
 from .utils import send_email
 from django.contrib import messages
-from .models import Listing, Image
+from .models import Listing, Image, ListingAdmin
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
@@ -40,9 +40,9 @@ def imagecat(request, listing_id=None):
         contact.save()
 
         # Assuming the send_email function is defined elsewhere and configured correctly
-        receiver_email = "lothartjipueja90@gmail.com"  # Update with the agent's email address
-        subject = "New Contact Request"
-        body = f"You have a new contact request from {user_name} {surname}. Email: {email}, Mobile Number: {mobile_number}. Message: {message}"
+        receiver_email = "anthonyraoulbock01@gmail.com"  # Update with the agent's email address
+        subject = "Property Listing Inquire"
+        body = f"{user_name} {surname} would like to Inquire about your recent lising {listing} Email: {email}, Mobile Number: {mobile_number}. Message: {message}"
         # Assuming no file attachments for now
         file_paths = []
         send_email(receiver_email, subject, body, file_paths)

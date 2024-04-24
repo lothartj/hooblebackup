@@ -384,8 +384,9 @@ img.imagepopup {
     </div>
 </div>
 
-{% for listing in listings %}
+
   <div class="image-wrapper">
+    {% for listing in listings %}
     {% with listing.images.first as image %}
       {% if image %}
         <a href="{% url 'imagecat' listing.id %}" class="image-container" style="text-decoration: none; color: inherit;">
@@ -401,8 +402,9 @@ img.imagepopup {
         </a>
       {% endif %}
     {% endwith %}
+    {% endfor %}
   </div>
-{% endfor %}
+
   
     
   </div>
