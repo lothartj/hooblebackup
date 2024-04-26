@@ -25,6 +25,7 @@ SECRET_KEY = "django-insecure-v0kfjekkqn$o$q3pmzaqs7omw0c)b0_*#5mn%st8h_bp%8#g(_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+CSRF_TRUSTED_ORIGINS = ['https://hooblebackup-2.onrender.com']
 ALLOWED_HOSTS = ["*"]
 
 
