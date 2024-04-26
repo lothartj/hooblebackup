@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Gallery</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #E9F1FF;
+  }
+  .card-sticky {
+    position: sticky;
+  }
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 30px auto;
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: auto; 
+    width: 60%;
+  }
+
+  .large-image {
+    width: 560px; 
+    height: auto; 
+    border-radius: 5px;
+  }
+
+  .small-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+  }
+
+  .small-row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+  }
+
+  .small-image {
+    width: 272px; 
+    height: 179px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+
+  
+  @media (max-width: 1100px) {
+    .image-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    
+
+    .large-image, .small-image {
+      width: 100%;
+      margin-top: 10px;
+      
+    }
+
+    .small-container {
+      flex-direction: column;
+      margin-left: 0;
+    }
+
+    .small-row {
+      flex-direction: column;
+    }
+  }
+
+  .navbar {
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+}
+.navbar-left, .navbar-center, .navbar-right {
+    display: flex;
+    align-items: center;
+}
+.navbar-left, .navbar-center, .navbar-right {
+    display: flex;
+    align-items: center;
+}
+.nav-link {
+      display: block;
+      margin: 10px 0;
+      text-align: center; 
+    }
+    .nav-link {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+  }
+  img.logoimage {
+    width: 34px;
+}
+
+@media (max-width: 700px) {
+        .iframe-container {
+            padding-top: 69.6%; 
+        }
+    }
+
+@media (max-width: 768px) {
+
+    element {
+        overflow: hidden;
+        padding-top: 75.6%;
+        position: relative;
+        width: 100%;
+    }
+}
+
+.framess {
+  cursor: grab;
+}
+
+    .card-gap {
+        margin-bottom: 10px;
+    }
+    .container-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      gap: 10px;
+    }
+    .card {
+      background-color: white;
+      border: 1px solid #dadada;
+      padding: 30px;
+      border-radius: 7px;
+      height: 100%;
+
+    }
+    .card-container {
+      width: 38%;
+  
+    }
+    .card-full {
+      height: auto; 
+    }
+    input {
+      border: 1px solid #b9b9b9;
+      padding: 7px;
+      margin: 10px 0px;
+      border-radius: 4px;
+      width: 96%;
+    }
+    textarea {
+    resize: none;
+    border: 1px solid #b9b9b9;
+    border-radius: 4px;
+    margin: 5px 0px;
+    width: 100%;
+}
+    button.btn.btn-primary {
+      background: #99beff;
+      border: 0;
+      padding: 10px;
+      width: 100%;
+      border-radius: 7px;
+      color: white;
+      font-weight: 500;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+
+    @media (max-width: 600px) {
+      .card-container {
+        width: 100%; 
+      }
+    }
+    @media (max-width: 600px) {
+    .card-half {
+        position: relative; 
+        width: 95%;
+    }
+}
+@media(max-width: 600px) {
+    .textarea {
+        width: 50px;
+    }
+}
+
+@media(max-width: 600px){
+  .card{
+    margin-left: 76px;
+    margin-right: 76px;
+  }
+}
+@media(max-width: 600px) {
+  .framess{
+    height: 20vh;
+    padding-top: 61.6%;
+  }
+}
+
+
+
+@media(max-width: 1200px) {
+  element.style {
+    overflow: hidden;
+    padding-top: 41.6%;
+    position: relative;
+    width: 100%;
+    height: 20vh;
+    cursor: grab;
+
+  }
+} 
+::-webkit-scrollbar {
+    width:6px; /* width of the scrollbar */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; /* color of the track */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #99beff; /* color of the scrollbar */
+    border-radius: 6px; /* roundness of the scrollbar thumb */
+  }
+
+
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImageCat</title>
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar">
+      <div class="navbar-left">
+        <img src="hooble.png" alt="Logo" class="logoimage"> 
+    </div>
+        <div class="navbar-center">
+            <a href="#" class="nav-link">ADVERTISE</a>
+            <a href="#" class="nav-link">ABOUT US</a>
+            <a href="#" class="nav-link">CONTACT US</a>
+        </div>
+        <div class="navbar-right">
+            <a href="#" class="logo" style="text-decoration: none;"></a>
+        </div>
+    </nav>
+  </div>
+
+  {% comment %} <div class="image-container">
+    <div style="overflow:hidden; padding-top:32.60%; position:relative; width:100%; cursor: grab;" class="framess">
+      <iframe src="{{ listing.iframe_url }}" frameborder="0" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%;"></iframe>
+    </div>
+    <div class="small-container">
+      <div class="small-row">
+        <!-- Make sure to enclose the URL in double quotes -->
+        <img src="{{ image.image.url }}" alt="Small Image" class="small-image">
+        <!-- Make sure to enclose the URL in double quotes -->
+        <img src="{{ image.image.url }}" alt="Small Image" class="small-image">
+      </div>
+      <div class="small-row">
+        <!-- Make sure to enclose the URL in double quotes -->
+        <img src="{{ image.image.url }}" alt="Small Image" class="small-image">
+        <!-- Make sure to enclose the URL in double quotes -->
+        <img src="{{ image.image.url }}" alt="Small Image" class="small-image">
+      </div>
+    </div>
+  </div> {% endcomment %}
+
+  <div class="image-container">
+    <div style="overflow:hidden; padding-top:32.60%; position:relative; width:100%; cursor: grab;" class="framess">
+        <iframe src="{{ listing.iframe_url }}" frameborder="0" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%;"></iframe>
+    </div>
+    <!-- Check if listing and images exist -->
+    {% if listing and images %}
+    <div class="small-container">
+        <!-- Output first two images in the first row -->
+        <div class="small-row">
+            {% for image in images|slice:":2" %}
+                <img src="{{ image.image.url }}" alt="{{ image.caption|default:'Small Image' }}" class="small-image">
+            {% endfor %}
+        </div>
+        <!-- Output next two images in the second row -->
+        <div class="small-row">
+            {% for image in images|slice:"2:4" %}
+                <img src="{{ image.image.url }}" alt="{{ image.caption|default:'Small Image' }}" class="small-image">
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+        <p>No images or listing available.</p>
+    {% endif %}
+</div>
+  
+
+  <!-- Your dynamic image loading section goes here -->
+
+  <div class="container container-grid">
+    <div class="card-container">
+      <div class="card card-full card-gap">
+        <!-- Make sure to replace `{{ listing.price }}`, `{{ listing.title }}`, and `{{ listing.location }}` with the appropriate dynamic data -->
+        {% load humanize %}
+        <h1>N$ {{ listing.price|floatformat:2|intcomma }}</h1>
+        <h4>{{ listing.title }}</h4>
+        <small>{{ listing.location }}</small>
+      </div>
+      <div class="card card-full" style="margin-bottom: 30px;">
+        <div>
+          <!-- Make sure to replace `{{ listing.price }}` and `{{ listing.erf_size }}` with the appropriate dynamic data -->
+          <small>N$ {{ listing.price }}</small>
+          <small>ERF Size {{ listing.erf_size }} sqm</small>
+        </div>
+        <br />
+        <div>
+          <small>Free standing Family Home in {{ listing.location }}</small>
+          <small>This property needs TLC</small>
+        </div>
+        <br />
+        <!-- Additional property details here, dynamically populated -->
+      </div>
+    </div>
+
+    <div class="card card-half card-sticky">
+      <h1>Contact Agent</h1>
+      <button id="toggleNumber" style="background-color: #99beff; color: white; padding: 10px; border: none; cursor: pointer; display: block; width: 100%; margin: 5px 0; text-align: left;border-radius: 5px;">Show Agent Contact Number</button>
+      <div id="contactNumber" style="display: none; padding: 10px; margin: 5px 0;">{{listing.agent_contact_number}}</div> <!-- Placeholder contact number -->
+      <button id="toggleEmail" style="background-color: #99beff; color: white; padding: 10px; border: none; cursor: pointer; display: block; width: 100%; margin: 5px 0; text-align: left;border-radius: 5px;">Show Agent Email Address</button>
+      <div id="emailAddress" style="display: none; padding: 10px; margin: 5px 0;">{{listing.agent_email}}</div> <!-- Placeholder email address -->
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-contrl" style="margin-bottom: 5px;">
+          <input type="text" name="user_name" placeholder="Name" required style="width: 100%; padding: 10px; box-sizing: border-box;">
+        </div>
+        <div class="form-contrl" style="margin-bottom: 5px;">
+          <input type="text" name="surname" placeholder="Surname" required style="width: 100%; padding: 10px; box-sizing: border-box;">
+        </div>
+        <div class="form-contrl" style="margin-bottom: 5px;">
+          <input type="email" name="email" placeholder="Email Address" required style="width: 100%; padding: 10px; box-sizing: border-box;">
+        </div>
+        <div class="form-contrl" style="margin-bottom: 5px;">
+          <input type="text" name="mobile_number" placeholder="Mobile Number" required style="width: 100%; padding: 10px; box-sizing: border-box;">
+        </div>
+        <textarea name="message" rows="4" cols="50" placeholder="Please contact me regarding web reference 114283369" style="width: 100%; padding: 10px; box-sizing: border-box;"></textarea>
+        <button type="submit" class="btn btn-primary" style="background-color: #99beff; color: white; padding: 10px; border: none; cursor: pointer; width: 100%; margin-top: 10px;">Send Message</button>
+      </form>
+      <!-- Messages display section -->
+      {% if messages %}
+      <div class="alert alert-success" style="padding: 10px; margin-top: 10px;">
+        {% for message in messages %}
+          {{ message }}
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('toggleNumber').addEventListener('click', function() {
+      var contactNumber = document.getElementById('contactNumber');
+      if (contactNumber.style.display === 'none') {
+        contactNumber.style.display = 'block';
+      } else {
+        contactNumber.style.display = 'none';
+      }
+    });
+    
+    document.getElementById('toggleEmail').addEventListener('click', function() {
+      var emailAddress = document.getElementById('emailAddress');
+      if (emailAddress.style.display === 'none') {
+        emailAddress.style.display = 'block';
+      } else {
+        emailAddress.style.display = 'none';
+      }
+    });
+    </script>
+</body>
+</html>
