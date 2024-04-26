@@ -1,5 +1,8 @@
 from django.db import models
 from django.contrib import admin
+from django.dispatch import receiver
+from django.db.models.signals import post_delete
+from django.core.files.storage import default_storage
 
 # ContactAgent model
 class ContactAgent(models.Model):
@@ -55,4 +58,10 @@ class ImageInline(admin.TabularInline):
 class ListingAdmin(admin.ModelAdmin):
     inlines = [ImageInline, ]
 
+@receiver(post_delete, sender=Image)
+def submission_delete(sender, instance, **kwargs):
+    # Delete the file from the filesystem
+    if instance.image:
+        if default_storage.exists(instance.image.name):
+            default_storage.delete(instance.image.name)
 

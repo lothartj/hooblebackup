@@ -40,7 +40,7 @@ def imagecat(request, listing_id=None):
         contact.save()
 
         # Email sending logic (assuming the send_email function is defined elsewhere and configured correctly)
-        receiver_email = {Listing.agent_email}  # Update with the agent's email address
+        receiver_email = listing.agent_email  # Update with the agent's email address
         subject = "Property Listing Inquire"
         body = f"{user_name} {surname} would like to Inquire about your recent listing {listing.title}. Email: {email}, Mobile Number: {mobile_number}. Message: {message}"
         # Assuming no file attachments for now
