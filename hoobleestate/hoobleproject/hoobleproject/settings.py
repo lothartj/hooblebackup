@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "hoobleproject.wsgi.app"
+WSGI_APPLICATION = "hoobleproject.wsgi.application"
 
 
 # Database
